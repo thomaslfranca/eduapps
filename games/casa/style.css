@@ -258,6 +258,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .ear-on:not(.metering) .ear { animation: breathe 2.6s ease-in-out infinite; }
 @keyframes breathe { 50% { scale: 1.08; } }
 .ear-tap .ear { background: var(--amber); color: #fff; animation: breathe 1.2s ease-in-out infinite; }
+.ear { --wave: #FFF1C9; } /* the sound wave (lib/voice/wave.js): blue is lost on the night and on the blue wall */
 
 .tap-hint {
   position: absolute;
