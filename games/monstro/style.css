@@ -354,13 +354,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .lv-say { color: var(--muted); font-size: clamp(15px, 2.6vmin, 22px); }
 .lv-go { padding: .35em .9em; border-radius: 99px; background: var(--green); color: #fff; font-size: clamp(17px, 3vmin, 26px); font-weight: 800; line-height: 1.15; box-shadow: 0 4px 0 #217A44; }
 .start-adult { max-width: 34em; margin: 0; color: #4A3010; font-size: clamp(14px, 2.2vmin, 18px); }
-/* short landscape: the start screen fits, with room for the engine badge (lib/voice/badge.js) at the bottom */
-@media (max-height: 500px) and (min-aspect-ratio: 1/1) {
-  .start { padding-block: 8px 38px; }
-  .start-mon { width: 64px; }
-  .level { padding-block: 10px 12px; }
-  .lv-food { width: 46px; }
-}
 
 .tap-resume { position: fixed; inset: 0; z-index: 30; border: 0; padding: 0; background: transparent; opacity: 0; }
 
