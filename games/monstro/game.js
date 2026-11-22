@@ -327,7 +327,7 @@ ui.cmds.addEventListener('click', (e) => {
   const b = e.target.closest('[data-i]');
   if (!b) return;
   const food = state.table[Number(b.dataset.i)];
-  say(`dá ${FOODS[food.item].fem ? 'a' : 'o'} ${label(food, state.level)}`);
+  say(`dá ${FOODS[food.item].fem ? 'a' : 'o'} ${label(food, state.level)}`, sfx.context());
 });
 
 ui.start.addEventListener('click', (e) => {
