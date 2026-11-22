@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#8ec9f5">
+  <title>Avião</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%238ec9f5'/%3E%3Crect x='6' y='22' width='52' height='6' rx='2' fill='%23fff'/%3E%3Crect x='28' y='16' width='8' height='38' rx='4' fill='%23fff'/%3E%3Crect x='22' y='48' width='20' height='4' rx='2' fill='%23c62828'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./game.js"></script>
+</head>
+<body>
+
+<a class="back" href="../../" aria-label="Voltar">←</a>
+
+<div id="hud" class="hud">
+  <div class="gauge"><span>Velocidade</span><b id="spd">0</b><i>nós</i></div>
+  <div class="gauge"><span>Altitude</span><b id="alt">0</b><i>pés</i></div>
+  <div class="gauge"><span>Subida</span><b id="vs">0</b><i>pés/min</i></div>
+  <div class="gauge"><span>Proa</span><b id="hdg">000</b><i>graus</i></div>
+  <div class="gauge"><span>Flaps</span><b id="flp">0°</b><i>&nbsp;</i></div>
+  <div class="gauge throttle"><span>Motor</span><div class="bar"><div id="thr"></div></div><i id="thrp">0%</i></div>
+</div>
+
+<div id="stall" class="stall" hidden>ESTOL!</div>
+<div id="msg" class="msg"></div>
+
+<div id="help" class="help">
+  <h2>Cessna 172</h2>
+  <table>
+    <tr><td><kbd>W</kbd> <kbd>S</kbd></td><td>nariz para baixo / para cima</td></tr>
+    <tr><td><kbd>A</kbd> <kbd>D</kbd></td><td>inclinar para esquerda / direita</td></tr>
+    <tr><td><kbd>Q</kbd> <kbd>E</kbd></td><td>leme (no chão, A/D também viram)</td></tr>
+    <tr><td><kbd>↑</kbd> <kbd>↓</kbd></td><td>acelerar / reduzir motor</td></tr>
+    <tr><td><kbd>F</kbd></td><td>flaps (0°, 10°, 20°, 30°)</td></tr>
+    <tr><td><kbd>Espaço</kbd></td><td>freio</td></tr>
+    <tr><td><kbd>C</kbd></td><td>trocar câmera</td></tr>
+    <tr><td><kbd>R</kbd></td><td>recomeçar na pista</td></tr>
+    <tr><td><kbd>M</kbd></td><td>som liga / desliga</td></tr>
+    <tr><td><kbd>H</kbd></td><td>mostrar / esconder ajuda</td></tr>
+  </table>
+  <p>Para decolar: motor no máximo (<kbd>↑</kbd>), espere passar de 55 nós e puxe com <kbd>S</kbd>.</p>
+  <button id="go" type="button">Voar!</button>
+</div>
+
+</body>
+</html>

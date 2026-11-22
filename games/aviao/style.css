@@ -1,0 +1,60 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #8ec9f5; font-family: -apple-system, "SF Pro Rounded", system-ui, sans-serif; color: #fff; }
+canvas { display: block; }
+
+.back {
+  position: fixed; z-index: 5;
+  top: max(10px, env(safe-area-inset-top)); left: max(10px, env(safe-area-inset-left));
+  display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255, 255, 255, .8); color: #333; font-size: 1.5rem; text-decoration: none;
+}
+
+.hud {
+  position: fixed; z-index: 4; left: 50%; bottom: 14px; transform: translateX(-50%);
+  display: flex; gap: 8px; padding: 8px 10px; border-radius: 16px;
+  background: rgba(15, 25, 40, .55); backdrop-filter: blur(6px);
+}
+.gauge { display: flex; flex-direction: column; align-items: center; min-width: 78px; }
+.gauge span { font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; opacity: .75; }
+.gauge b { font-size: 1.6rem; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.gauge i { font-size: .7rem; font-style: normal; opacity: .65; }
+.throttle .bar { width: 64px; height: 12px; margin: 9px 0 6px; border-radius: 6px; background: rgba(255, 255, 255, .2); overflow: hidden; }
+.throttle .bar div { height: 100%; width: 0; background: #ffb23f; }
+
+.stall {
+  position: fixed; z-index: 4; top: 18%; left: 50%; transform: translateX(-50%);
+  padding: 6px 18px; border-radius: 10px; background: #e5484d; font-weight: 900; font-size: 1.6rem;
+  animation: blink .5s steps(2) infinite;
+}
+@keyframes blink { 50% { opacity: .35; } }
+
+.msg {
+  position: fixed; z-index: 4; top: 30%; left: 50%; transform: translateX(-50%);
+  font-size: clamp(1.6rem, 5vw, 2.8rem); font-weight: 900; text-align: center;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, .45); pointer-events: none;
+  opacity: 0; transition: opacity .4s;
+}
+.msg.show { opacity: 1; }
+
+.help {
+  position: fixed; z-index: 6; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: min(440px, calc(100vw - 32px)); padding: 20px 22px; border-radius: 20px;
+  background: rgba(15, 25, 40, .82); backdrop-filter: blur(8px);
+}
+.help[hidden] { display: none; }
+.help h2 { margin: 0 0 10px; font-size: 1.5rem; }
+.help table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.help td { padding: 3px 0; vertical-align: top; }
+.help td:first-child { white-space: nowrap; padding-right: 12px; }
+.help p { font-size: .9rem; opacity: .85; }
+kbd { display: inline-block; min-width: 24px; padding: 1px 6px; border-radius: 6px; background: #fff; color: #223; font: 700 .85rem system-ui, sans-serif; text-align: center; }
+.help button {
+  width: 100%; padding: 12px; border: 0; border-radius: 12px; cursor: pointer;
+  background: #ffb23f; color: #3a2400; font-size: 1.2rem; font-weight: 900;
+}
+
+@media (max-width: 620px) {
+  .gauge { min-width: 52px; }
+  .gauge b { font-size: 1.1rem; }
+  .throttle .bar { width: 44px; }
+}
