@@ -1,3 +1,5 @@
+import { say } from '../../lib/voice/say.js';
+import { FOODS } from './kitchen.js';
 import { GRAMMAR, key, spot } from './words.js';
 import { FEEDS, goalPlate, give, label, newGame, next, plateKey, resolve } from './kitchen.js';
 import { MONSTER, foodSVG } from './art.js';
@@ -323,7 +325,9 @@ ui.start.querySelector(`[data-level="${state.level}"]`).classList.add('saved');
 
 ui.cmds.addEventListener('click', (e) => {
   const b = e.target.closest('[data-i]');
-  if (b) fire(state.table[Number(b.dataset.i)], 'tap');
+  if (!b) return;
+  const food = state.table[Number(b.dataset.i)];
+  say(`dá ${FOODS[food.item].fem ? 'a' : 'o'} ${label(food, state.level)}`);
 });
 
 ui.start.addEventListener('click', (e) => {

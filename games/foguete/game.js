@@ -1,3 +1,4 @@
+import { say } from '../../lib/voice/say.js';
 import { COMMANDS, GRAMMAR, ORDER, spot } from './commands.js';
 import { PAD, goal, newRun, obstacle, step, turnGreen } from './trip.js';
 import * as sfx from './sfx.js';
@@ -307,7 +308,7 @@ if (FLAGS.debug) ear.debugEnv();
 ui.cmds.innerHTML = ORDER.map((c) => `<button type="button" class="cmd" data-cmd="${c}"><span class="ic" aria-hidden="true">${COMMANDS[c].icon}</span><span class="w">${COMMANDS[c].label}</span></button>`).join('');
 ui.cmds.addEventListener('click', (e) => {
   const b = e.target.closest('[data-cmd]');
-  if (b) fire(b.dataset.cmd, 'tap');
+  if (b) say(COMMANDS[b.dataset.cmd].label);
 });
 
 ui.start.addEventListener('click', () => {
