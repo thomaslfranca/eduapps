@@ -3,6 +3,7 @@ import { goal, newRun, step } from './house.js';
 import * as sfx from './sfx.js';
 import { dbg, initDebug, readFlags } from '../../lib/voice/debug.js';
 import { createEar } from '../../lib/voice/ear.js';
+import { engineBadge } from '../../lib/voice/badge.js';
 
 const $ = (id) => document.getElementById(id);
 const FLAGS = readFlags(location.search);
@@ -335,6 +336,7 @@ const ear = createEar({
   grammar: GRAMMAR,
   ui: { ear: ui.ear, tapResume: ui.tapResume, tapHint: ui.tapHint },
 });
+engineBadge(ui.start, ear);
 
 // ---------- debug (?debug) ----------
 
